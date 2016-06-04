@@ -49,6 +49,8 @@ namespace Overlord
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            ms = Mouse.GetState();
+            sm.Update(gameTime, ms);
             base.Update(gameTime);
         }
 

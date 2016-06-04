@@ -25,18 +25,15 @@ namespace Overlord
             menu.LoadContent(Content);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, MouseState ms)
         {
-             
+            menu.Update(gameTime, ms);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (isPlaying == false)
-            {
-                menu.Draw(spriteBatch);
-            }
-                
+            menu.Draw(spriteBatch);
+                          
         }
     }
 }
