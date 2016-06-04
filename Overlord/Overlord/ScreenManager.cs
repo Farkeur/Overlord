@@ -11,7 +11,7 @@ namespace Overlord
 {
     class ScreenManager
     {
-        Menu menu;
+       
         public Texture2D texture;
 
         enum GameState
@@ -21,10 +21,11 @@ namespace Overlord
             Playing,
         }
         GameState CurrentGameState = GameState.Menu;
+        Menu menu;
 
         public void Initialize()
         {
-            
+            menu = new Menu();
         }
             
         public void LoadContent(ContentManager Content)
