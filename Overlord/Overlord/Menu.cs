@@ -12,10 +12,6 @@ namespace Overlord
 {
     class Menu
     {
-        private SpriteFont POLICE;
-        private SpriteFont TITRE;
-        private SpriteFont OPTION;
-
         Texture2D texture;
         Vector2 position;
         Rectangle rectangle;
