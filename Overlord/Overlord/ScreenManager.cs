@@ -7,5 +7,15 @@ namespace Overlord
 {
     class ScreenManager
     {
+        public void LoadContent()
+        {
+
+        }
+
+        public void Draw()
+        {
+
+        }
+
     }
 }
