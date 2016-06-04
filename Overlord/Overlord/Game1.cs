@@ -6,31 +6,35 @@ namespace Overlord
 {
     
     public class Game1 : Game
-    {
+    {   
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Menu menu;
-        
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
             Content.RootDirectory = "Content";
         }
-
+        
         protected override void Initialize()
         {
+            menu = new Menu();
+            menu.Initialize();
             base.Initialize();
-            
         }
 
         
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            menu.LoadContent(Content);     
-        }
 
+            menu.LoadContent(Content);
+            
+        }
+         
         protected override void UnloadContent()
         {
             
@@ -41,9 +45,6 @@ namespace Overlord
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            
-
             base.Update(gameTime);
         }
 

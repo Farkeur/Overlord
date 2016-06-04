@@ -19,3 +19,15 @@
 /processorParam:TextureFormat=Compressed
 /build:POLICE.spritefont
 
+#begin TITRE.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:TITRE.spritefont
+
+#begin Indi.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:Indi.spritefont
+
