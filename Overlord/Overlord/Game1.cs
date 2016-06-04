@@ -28,7 +28,6 @@ namespace Overlord
             sm.Initialize(ms);
             base.Initialize();
         }
-
         
         protected override void LoadContent()
         {
