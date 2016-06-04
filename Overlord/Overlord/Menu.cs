@@ -40,7 +40,10 @@ namespace Overlord
 
         public virtual void Update(GameTime gameTime)
         {
-            
+            if(mrectangle.Intersects(rectangle))
+            {
+
+            }
 
         }
 
