@@ -19,7 +19,8 @@ namespace Overlord
         public bool isPlaying = false;
         Rectangle rectangle;
         Rectangle mrectangle;
-        
+        public bool isclicked = false;
+
         public virtual void Initialize(MouseState ms)
         {
             rectangle = new Rectangle(950,600,40,100);
@@ -38,9 +39,13 @@ namespace Overlord
 
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, MouseState ms)
         {
-            if(mrectangle.Intersects(rectangle)) // && que tu cliques alors -->
+            if(ms.LeftButton == ButtonState.Pressed)
+            {
+                isclicked = true;
+            }
+            if(mrectangle.Intersects(rectangle) && isclicked ==true)
             {
                 isPlaying = true;
             }
