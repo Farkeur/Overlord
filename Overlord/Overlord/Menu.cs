@@ -12,19 +12,18 @@ namespace Overlord
 {
     class Menu
     {
+        Game1 game;
         private SpriteFont POLICE;
         private SpriteFont TITRE;
         private SpriteFont OPTION;        
 
         Rectangle rectangle;
-        public void mouseState(MouseState mouse)
-        {
-
-        }
-
-        public virtual void Initialize()
+        Rectangle mrectangle;
+        
+        public virtual void Initialize(MouseState ms)
         {
             rectangle = new Rectangle(950,600,40,100);
+            mrectangle = new Rectangle(ms.X,ms.Y,1,1);
         }
 
         public virtual void LoadContent(ContentManager Content)

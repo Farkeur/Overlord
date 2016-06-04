@@ -24,7 +24,7 @@ namespace Overlord
         protected override void Initialize()
         {
             menu = new Menu();
-            menu.Initialize();
+            menu.Initialize(ms);
             base.Initialize();
         }
 
