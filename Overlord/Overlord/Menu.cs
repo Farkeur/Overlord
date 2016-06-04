@@ -16,34 +16,48 @@ namespace Overlord
         private SpriteFont TITRE;
         private SpriteFont OPTION;
 
-        public virtual void Initialize()
+        Texture2D texture;
+        Vector2 position;
+        Rectangle rectangle;
+
+        Color colour = new Color(255, 255, 255, 255);
+        public Vector2 size;
+
+        public Menu(Texture2D newTexture, GraphicsDevice graphics)
         {
-            
+            texture = newTexture;
+            size = new Vector2(graphics.Viewport.Width /8, graphics.Viewport.Height /30);
         }
 
-        public virtual void LoadContent(ContentManager Content)
+        bool down;
+        public bool isClicked;
+            public void Update(MouseState mouse)
         {
-            POLICE = Content.Load<SpriteFont>("POLICE");
-            TITRE = Content.Load<SpriteFont>("TITRE");
-            OPTION = Content.Load<SpriteFont>("Indi");
+            rectangle = new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y);
+            Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
+
+            if (mouseRectangle.Intersects(rectangle))
+            {
+                if (colour.A == 255) down = false;
+                if (colour.A == 0) down = true;
+                if (down) colour.A += 3; else colour.A -= 3;
+                if (mouse.LeftButton == ButtonState.Pressed) isClicked = true;
+            }
+            else if(colour.A <255)
+            {
+                colour.A += 3;
+                isClicked = false;
+            }
         }
 
-        public virtual void UnloadContent()
+        public void setPosition(Vector2 newPosition)
         {
-
+            position = newPosition;
         }
-
-        public virtual void Update(GameTime gameTime)
+        
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            
-
-        }
-
-        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-            spriteBatch.DrawString(POLICE, "PLAY", new Vector2(925,600), Color.Black);
-            spriteBatch.DrawString(TITRE, "TITRE AU PIF", new Vector2(720,50), Color.Black);
-            spriteBatch.DrawString(OPTION, "Option", new Vector2(950,700), Color.Black);
+            spriteBatch.Draw(texture, rectangle, colour);
         }
     }
 }

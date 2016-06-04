@@ -6,24 +6,27 @@ namespace Overlord
 {
     
     public class Game1 : Game
-    {   
+    {
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Menu menu;
+        ScreenManager screenmanager;
 
+
+        int screenHeight = 1920;
+        int screenWidth = 1080;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
+            
             Content.RootDirectory = "Content";
         }
         
         protected override void Initialize()
-        {
-            menu = new Menu();
-            menu.Initialize();
+        {    
             base.Initialize();
+            screenmanager = new ScreenManager();
         }
 
         
@@ -31,13 +34,19 @@ namespace Overlord
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            menu.LoadContent(Content);
-            
+            graphics.PreferredBackBufferWidth = screenWidth;
+            graphics.PreferredBackBufferHeight = screenHeight;
+            //graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+            IsMouseVisible = true;
+
+            menu = new Menu(Content.Load<Texture2D>("play-button"), graphics.GraphicsDevice);
+            menu.setPosition(new Vector2(750, 600));
         }
          
         protected override void UnloadContent()
-        {
-            
+        { 
+            ;
         }
 
         
@@ -45,15 +54,18 @@ namespace Overlord
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            base.Update(gameTime);
+
+                screenmanager.Update(gameTime);
+
+                base.Update(gameTime);
         }
 
         
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
-            menu.Draw(gameTime, spriteBatch);
+            spriteBatch.Begin();          
+            
             spriteBatch.End();
 
             base.Draw(gameTime);
