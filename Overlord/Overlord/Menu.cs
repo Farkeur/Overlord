@@ -17,14 +17,11 @@ namespace Overlord
         private SpriteFont TITRE;
         private SpriteFont OPTION;
         bool isPlaying = false;
-        Rectangle rectangle;
-        Rectangle mrectangle;
         public bool isclicked = false;
 
         public virtual void Initialize(MouseState ms)
         {
-            rectangle = new Rectangle(950,600,100,100);
-            mrectangle = new Rectangle(ms.X,ms.Y,2,2);
+
         }
 
         public virtual void LoadContent(ContentManager Content)
@@ -42,7 +39,7 @@ namespace Overlord
         public virtual void Update(GameTime gameTime, MouseState ms)
         {
 
-            if ( ms.X >950 && ms.X <1050 && ms.Y >600 && ms.Y <700 && ms.LeftButton == ButtonState.Pressed)
+            if ( ms.X >925 && ms.X <1060 && ms.Y >590 && ms.Y <640 && ms.LeftButton == ButtonState.Pressed)
             {
                 isPlaying = true;
             }
