@@ -12,7 +12,6 @@ namespace Overlord
     class ScreenManager
     {
 
-        public bool IsPlaying;
         
         public void Initialize()
         {

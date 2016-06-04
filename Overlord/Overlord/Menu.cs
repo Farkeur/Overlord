@@ -15,8 +15,8 @@ namespace Overlord
         Game1 game;
         private SpriteFont POLICE;
         private SpriteFont TITRE;
-        private SpriteFont OPTION;        
-
+        private SpriteFont OPTION;
+        public bool isPlaying = false;
         Rectangle rectangle;
         Rectangle mrectangle;
         
@@ -40,9 +40,9 @@ namespace Overlord
 
         public virtual void Update(GameTime gameTime)
         {
-            if(mrectangle.Intersects(rectangle))
+            if(mrectangle.Intersects(rectangle)) // && que tu cliques alors -->
             {
-
+                isPlaying = true;
             }
 
         }
