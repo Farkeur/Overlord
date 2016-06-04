@@ -11,16 +11,18 @@ namespace Overlord
 {
     class ScreenManager
     {
+        Menu menu;
         bool isPlaying = false;
 
-        public void Initialize()
+        public void Initialize(MouseState ms)
         {
-            
+            menu = new Menu();
+            menu.Initialize(ms);
         }
             
         public void LoadContent(ContentManager Content)
         {
-           
+            menu.LoadContent(Content);
         }
 
         public void Update(GameTime gameTime)
@@ -30,7 +32,11 @@ namespace Overlord
 
         public void Draw(SpriteBatch spriteBatch)
         {
-                       
+            if (isPlaying == false)
+            {
+                menu.Draw(spriteBatch);
+            }
+                
         }
     }
 }

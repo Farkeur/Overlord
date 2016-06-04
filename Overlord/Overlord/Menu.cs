@@ -12,7 +12,7 @@ namespace Overlord
 {
     class Menu
     {
-        Game1 game;
+       
         private SpriteFont POLICE;
         private SpriteFont TITRE;
         private SpriteFont OPTION;
@@ -51,11 +51,11 @@ namespace Overlord
 
         }
 
-        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public virtual void Draw( SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(POLICE, "PLAY", new Vector2(925,600), Color.Black);
-            spriteBatch.DrawString(TITRE, "TITRE AU PIF", new Vector2(720,50), Color.Black);
-            spriteBatch.DrawString(OPTION, "Option", new Vector2(950,700), Color.Black);
+                spriteBatch.DrawString(POLICE, "PLAY", new Vector2(925, 600), Color.Black);
+                spriteBatch.DrawString(TITRE, "TITRE AU PIF", new Vector2(720, 50), Color.Black);
+                spriteBatch.DrawString(OPTION, "Option", new Vector2(950, 700), Color.Black);
         }
     }
 }

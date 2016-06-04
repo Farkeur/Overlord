@@ -9,9 +9,10 @@ namespace Overlord
     {   
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Menu menu;
+        ScreenManager sm;
         MouseState ms;
         KeyboardState ks;
+        
 
         public Game1()
         {
@@ -23,8 +24,8 @@ namespace Overlord
         
         protected override void Initialize()
         {
-            menu = new Menu();
-            menu.Initialize(ms);
+            sm = new ScreenManager();
+            sm.Initialize(ms);
             base.Initialize();
         }
 
@@ -32,8 +33,9 @@ namespace Overlord
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            IsMouseVisible = true;
 
-            menu.LoadContent(Content);
+            sm.LoadContent(Content);
             
         }
          
@@ -55,7 +57,7 @@ namespace Overlord
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            menu.Draw(gameTime, spriteBatch);
+            sm.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
