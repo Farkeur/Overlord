@@ -9,31 +9,27 @@ namespace Overlord
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Menu menu;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
-
         
         protected override void Initialize()
         {
-            
-
             base.Initialize();
+            menu.Initialize();
         }
 
         
         protected override void LoadContent()
         {
-           
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            
+            menu.LoadContent(Content);     
         }
-
-       
+         
         protected override void UnloadContent()
         {
             
@@ -55,7 +51,7 @@ namespace Overlord
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-           
+            menu.Draw(gameTime, spriteBatch);
 
             base.Draw(gameTime);
         }
