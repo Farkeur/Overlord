@@ -16,7 +16,6 @@ namespace Overlord
         private SpriteFont POLICE;
         private SpriteFont TITRE;
         private SpriteFont OPTION;
-        public bool isPlaying = false;
         Rectangle rectangle;
         Rectangle mrectangle;
         public bool isclicked = false;
@@ -39,7 +38,7 @@ namespace Overlord
 
         }
 
-        public virtual void Update(GameTime gameTime, MouseState ms)
+        public virtual void Update(GameTime gameTime, MouseState ms, bool isPlaying)
         {
             if(ms.LeftButton == ButtonState.Pressed)
             {
