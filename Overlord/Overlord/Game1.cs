@@ -8,7 +8,8 @@ namespace Overlord
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;       
+        SpriteBatch spriteBatch;
+        Menu menu;
 
         public Game1()
         {
@@ -16,24 +17,19 @@ namespace Overlord
             Content.RootDirectory = "Content";
         }
 
-        
         protected override void Initialize()
         {
-            
-
             base.Initialize();
+            menu.Initialize();
         }
 
         
         protected override void LoadContent()
         {
-           
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            
+            menu.LoadContent(Content);     
         }
 
-       
         protected override void UnloadContent()
         {
             
@@ -54,8 +50,9 @@ namespace Overlord
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-           
+            spriteBatch.Begin();
+            menu.Draw(gameTime, spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
