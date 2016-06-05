@@ -25,7 +25,7 @@ namespace Overlord
         bool left = false;
         bool right = false;
 
-        float speed = 1;
+        float speed = 0.5f;
 
         public void Initialize()
         {

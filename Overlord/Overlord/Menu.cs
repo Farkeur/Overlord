@@ -43,10 +43,7 @@ namespace Overlord
             {
                 isPlaying = true;
             }
-            else
-            {
-                isPlaying = false;
-            }
+            
         }
 
         public virtual void Draw( SpriteBatch spriteBatch)
