@@ -12,6 +12,7 @@ namespace Overlord
     class GameScreen
     {
         Hero hero;
+
         public void Initialize()
         {
             hero = new Hero();

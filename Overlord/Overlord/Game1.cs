@@ -9,7 +9,7 @@ namespace Overlord
     {   
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        ScreenManager sm;
+        ScreenManager sm;      
         MouseState ms;
         KeyboardState ks;
         
@@ -24,16 +24,16 @@ namespace Overlord
         
         protected override void Initialize()
         {
-            sm = new ScreenManager();
-            sm.Initialize(ms);
+            sm = new ScreenManager();           
+            sm.Initialize(ms);           
+            
             base.Initialize();
         }
         
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            IsMouseVisible = true;
-
+            IsMouseVisible = true;            
             sm.LoadContent(Content);
             
         }
@@ -49,6 +49,7 @@ namespace Overlord
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             ms = Mouse.GetState();
+            ks = Keyboard.GetState();
             sm.Update(gameTime, ms, ks);
             base.Update(gameTime);
         }

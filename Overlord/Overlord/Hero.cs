@@ -19,7 +19,7 @@ namespace Overlord
         private Vector2 h1position;
 
         
-        Game1 game;
+        
         bool front = false;
         bool back = false;
         bool left = false;
@@ -37,12 +37,12 @@ namespace Overlord
             h1 = Content.Load<Texture2D>("Hero/HeroFront1");
             h2 = Content.Load<Texture2D>("Hero/HeroFront2");
             h3 = Content.Load<Texture2D>("Hero/HeroLeft1");
-            h4 = Content.Load<Texture2D>("Hero/HeroRight2");
+            h4 = Content.Load<Texture2D>("Hero/HeroRight1");
         }
 
         public void Update(GameTime gameTime, KeyboardState ks)
         {
-            ks = Keyboard.GetState();
+            
             
 
             if (ks.IsKeyDown(Keys.Up))
