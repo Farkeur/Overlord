@@ -48,21 +48,33 @@ namespace Overlord
             if (ks.IsKeyDown(Keys.Up))
             {
                 back = true;
-                h1position.Y += speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                front = false;
+                left = false;
+                right = false;
+                h1position.Y -= speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
             if (ks.IsKeyDown(Keys.Down))
             {
                  front = true;
-                h1position.Y -= speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                back = false;
+                left = false;
+                right = false;
+                h1position.Y += speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
             if (ks.IsKeyDown(Keys.Left))
             {
                 left = true;
+                right = false;
+                front = false;
+                back = false;
                 h1position.X -= speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
             if (ks.IsKeyDown(Keys.Right))
             {
                 right = true;
+                front = false;
+                back = false;
+                left = false;
                 h1position.X += speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
@@ -74,24 +86,21 @@ namespace Overlord
             
             if (front == true)
             {
-                spriteBatch.Draw(h1, Vector2.Zero, Color.White);
+                spriteBatch.Draw(h1, h1position, null,Color.White, 0f, Vector2.Zero, 0.1f, SpriteEffects.None, 0f);
             }
-            if (back == true)
+            else if (back == true)
             {
-                spriteBatch.Draw(h2, Vector2.Zero, Color.White);
+                spriteBatch.Draw(h2, h1position,null, Color.White,0f, Vector2.Zero, 0.1f,SpriteEffects.None, 0f);
             }
-            if (left == true)
+            else if (left == true)
             {
-                spriteBatch.Draw(h3, Vector2.Zero, Color.White);
+                spriteBatch.Draw(h3, h1position,null, Color.White,0f ,Vector2.Zero,0.1f,SpriteEffects.None, 0f);
             }
-            if (right == true)
+            else if (right == true)
             {
-                spriteBatch.Draw(h4, Vector2.Zero, Color.White);
+                spriteBatch.Draw(h4, h1position,null, Color.White, 0f, Vector2.Zero, 0.1f,SpriteEffects.None, 0f);
             }
-            //spriteBatch.Draw(h1, Vector2.Zero, Color.White);
-            //spriteBatch.Draw(h2, Vector2.Zero, Color.White);
-            // spriteBatch.Draw(h3, Vector2.Zero, Color.White);
-            // spriteBatch.Draw(h4, Vector2.Zero, Color.White);
+            
         }
     }
 }
