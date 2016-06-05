@@ -17,15 +17,13 @@ namespace Overlord
         private Texture2D h4;
 
         private Vector2 h1position;
-
-        
-        
+              
         bool front = false;
         bool back = false;
         bool left = false;
         bool right = false;
-
         float speed = 0.5f;
+
 
         public void Initialize()
         {
@@ -45,7 +43,7 @@ namespace Overlord
             
             
 
-            if (ks.IsKeyDown(Keys.Up))
+            if (ks.IsKeyDown(Keys.Z))
             {
                 back = true;
                 front = false;
@@ -53,7 +51,7 @@ namespace Overlord
                 right = false;
                 h1position.Y -= speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
-            if (ks.IsKeyDown(Keys.Down))
+            if (ks.IsKeyDown(Keys.S))
             {
                  front = true;
                 back = false;
@@ -61,7 +59,7 @@ namespace Overlord
                 right = false;
                 h1position.Y += speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
-            if (ks.IsKeyDown(Keys.Left))
+            if (ks.IsKeyDown(Keys.Q))
             {
                 left = true;
                 right = false;
@@ -69,7 +67,7 @@ namespace Overlord
                 back = false;
                 h1position.X -= speed * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
-            if (ks.IsKeyDown(Keys.Right))
+            if (ks.IsKeyDown(Keys.D))
             {
                 right = true;
                 front = false;
